@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts Orchestrator Solution</title>
+</head>
+<body>
+    <h2>Contacts Orchestrator Solution</h2>
+
+    <?php
+        if(count($json_contact))
+        { ?>
+    <?php
+        $image = $json_contact['PhotoUrl'];
+        $imageData = base64_encode(file_get_contents($image));
+        echo '<img src="data:image/jpeg;base64,'.$imageData.'">';
+    ?>
+    <p><b>Guid: </b><?php echo $json_contact['Guid'] ?></p>
+    <p><b>Given Name: </b><?php echo $json_contact['GivenName'] ?></p>
+    <p><b>Surname: </b><?php echo $json_contact['Surname'] ?></p>
+    <p><b>Occupation: </b><?php echo $json_contact['Occupation'] ?></p>
+    <p><b>Street Address: </b><?php echo $json_contact['StreetAddress'] ?></p>
+    <p><b>Birthday: </b><?php echo $json_contact['Birthday'] ?></p>
+    <p><b>City: </b><?php echo $json_contact['City'] ?></p>
+    <p><b>Company: </b><?php echo $json_contact['Company'] ?></p>
+    <p><b>Email: </b><?php echo $json_contact['Email'] ?></p>
+    <p><b>Phone: </b><?php echo $json_contact['Phone'] ?></p>
+    <p><b>PhotoUrl: </b><?php echo $json_contact['PhotoUrl'] ?></p>
+    <br>
+
+    <?php
+        echo "<a href=index.php />Back";
+    ?>
+    <?php
+        }
+    ?>
+</body>
+</html>

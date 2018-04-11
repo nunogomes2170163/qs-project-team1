@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts Orchestrator Solution</title>
+</head>
+<body>
+    <h2 style="font-family: 'Arial Black'">Contacts Orchestrator Solution</h2>
+
+    <?php
+        if(count($json_contacts))
+    {
+    ?>
+
+    <table id="contacts" class="display" style="width:50%; background-color: lightskyblue" border="1">
+    <tr>
+        <th>Guid</th>
+        <th>GivenName</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <?php
+        foreach($json_contacts as $contact)
+        {
+            echo "<tr>";
+        echo "<td>" . $contact['Guid'] . "</td>";
+        echo "<td>" . $contact['GivenName'] . "</td>";
+        echo "<td>" . $contact['Surname'] . "</td>";
+        echo "<td>" . $contact['Email'] . "</td>";
+        echo "<td>" . $contact['Phone'] . "</td>";
+        echo "<td><a href=get_contact.php?guid={$contact['Guid']}  />Open</td>";
+        echo "</tr>";
+        $i++;
+        }
+        echo "</table>";
+    }
+    ?>
+</body>
+</html>
