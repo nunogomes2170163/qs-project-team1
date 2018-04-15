@@ -3,36 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Contacts Orchestrator Solution</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-    <h2>Contacts Orchestrator Solution</h2>
+    <header>
+        <h1 class="main-title">Contacts Orchestrator Solution</h1>
+        <h2 class="sub-title">Contact Information</h2>
+    </header>
+    <main>
+        <?php
+            if(count($json_contact)) {
+        ?>
+        <div class="contact">
+        <?php
+            $image = $json_contact['PhotoUrl'];
+            $imageData = base64_encode(file_get_contents($image));
+            echo '<img class="avatar" src="data:image/jpeg;base64,'.$imageData.'">';
+            echo '<p class="guid"> GUID: ' . $json_contact['Guid'] . '</p>';
+        ?>
+            <div class="info">
+                <div class="pair">
+                    <label>Name</label>
+                    <p><?php echo $json_contact['GivenName'] ?></p>
+                </div>
+                <div class="pair">
+                    <label>Surname</label>
+                    <p><?php echo $json_contact['Surname'] ?></p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="pair">
+                    <label>Occupation</label>
+                    <p><?php echo $json_contact['Occupation'] ?></p>
+                </div>
+                <div class="pair">
+                    <label>Street Address</label>
+                    <p><?php echo $json_contact['StreetAddress'] ?></p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="pair">
+                    <label>Birthday</label>
+                    <p><?php echo $json_contact['Birthday'] ?></p>
+                </div>
+                <div class="pair">
+                    <label>City</label>
+                    <p><?php echo $json_contact['City'] ?></p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="pair">
+                    <label>Company</label>
+                    <p><?php echo $json_contact['Company'] ?></p>
+                </div>
+                <div class="pair">
+                    <label>Email</label>
+                    <p><?php echo $json_contact['Email'] ?></p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="pair">
+                    <label>Phone</label>
+                    <p><?php echo $json_contact['Phone'] ?></p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="pair">
+                    <label>PhotoUrl</label>
+                    <p><?php echo $json_contact['PhotoUrl'] ?></p>
+                </div>
+            </div>
+            <br>
 
-    <?php
-        if(count($json_contact))
-        { ?>
-    <?php
-        $image = $json_contact['PhotoUrl'];
-        $imageData = base64_encode(file_get_contents($image));
-        echo '<img src="data:image/jpeg;base64,'.$imageData.'">';
-    ?>
-    <p><b>Guid: </b><?php echo $json_contact['Guid'] ?></p>
-    <p><b>Given Name: </b><?php echo $json_contact['GivenName'] ?></p>
-    <p><b>Surname: </b><?php echo $json_contact['Surname'] ?></p>
-    <p><b>Occupation: </b><?php echo $json_contact['Occupation'] ?></p>
-    <p><b>Street Address: </b><?php echo $json_contact['StreetAddress'] ?></p>
-    <p><b>Birthday: </b><?php echo $json_contact['Birthday'] ?></p>
-    <p><b>City: </b><?php echo $json_contact['City'] ?></p>
-    <p><b>Company: </b><?php echo $json_contact['Company'] ?></p>
-    <p><b>Email: </b><?php echo $json_contact['Email'] ?></p>
-    <p><b>Phone: </b><?php echo $json_contact['Phone'] ?></p>
-    <p><b>PhotoUrl: </b><?php echo $json_contact['PhotoUrl'] ?></p>
-    <br>
-
-    <?php
-        echo "<a href=index.php />Back";
-    ?>
-    <?php
-        }
-    ?>
+        <?php
+            echo "<a href=index.php />Back";
+        ?>
+        </div>
+        <?php
+            }
+        ?>
+    </main>
 </body>
 </html>

@@ -1,0 +1,99 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body, html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    padding: 30px 30px 30px 80px;
+    background-color: #333333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+header h1 {
+    font-size: 2.5rem;
+    color: #e87e1e;
+}
+header h2 {
+    font-size: 1.2rem;
+    color: #e87e1e;
+}
+.main-title {
+    margin-right: 30px;
+}
+.main-title:after {
+    content: ' ';
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    margin: 0 15px;
+    background-color: #307de8;
+}
+.sub-title {
+    text-transform: uppercase;
+}
+.mdl-grid {
+    padding: 0 80px;
+}
+.mdl-grid.dt-table {
+    padding: 20px 80px;
+}
+.mdl-grid:first-of-type {
+    z-index: -1;
+    padding: 20px 80px;
+    background-color: #dbdbdb;
+}
+.mdl-grid:first-of-type label {
+    font-size: 1.3rem;
+}
+.mdl-grid:first-of-type input {
+    border-image: none;
+    background: transparent !important;
+    border-bottom: 1px solid #307de8 !important;
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.contact .avatar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+.info .pair {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.info .pair label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #b4b4b4;
+}
+.info .pair p {
+    font-size: 1.2rem;
+    color: #555;
+}
+.guid {
+    font-size: 0.8rem;
+    color: #b4b4b4;
+}

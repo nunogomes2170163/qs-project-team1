@@ -4,68 +4,47 @@
     <meta charset="UTF-8">
     <title>Contacts Orchestrator Solution</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-    <h2 style="font-family: 'Arial Black'">Contacts Orchestrator Solution</h2>
-
-    <?php
-        if(count($json_contacts))
-    {
-    ?>
-
-    <div class="container">
-        <table id="contacts" class="display">
-            <thead>
-                <tr>
-                    <th>Guid</th>
-                    <th>GivenName</th>
-                    <th>Surname</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                foreach($json_contacts as $contact) {
-                    echo "<tr>";
-                    echo "<td>" . $contact['Guid'] . "</td>";
-                    echo "<td>" . $contact['GivenName'] . "</td>";
-                    echo "<td>" . $contact['Surname'] . "</td>";
-                    echo "<td>" . $contact['Email'] . "</td>";
-                    echo "<td>" . $contact['Phone'] . "</td>";
-                    echo "<td><a href=get_contact.php?guid={$contact['Guid']}  />Open</td>";
-                    echo "</tr>";
-                }
-            }
-            ?>
-            </tbody>
-        </table>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#contacts').DataTable({
-                'columnDefs': [
-                    {
-                        'sortable': false,
-                        'targets': [-1]
-                    },
-                    {
-                        'searchable': false,
-                        'targets': [-1]
-                    },
-                    {
-                        "targets": [ 2 ],
-                        "visible": false
+    <header>
+        <h1 class="main-title">Contacts Orchestrator Solution</h1>
+        <h2 class="sub-title">Contacts List</h2>
+    </header>
+    <main>
+        <?php
+            if(count($json_contacts)) {
+        ?>
+        <div class="container">
+            <table id="contacts" class="hover">
+                <thead>
+                    <tr>
+                        <th>Guid</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach($json_contacts as $contact) {
+                        echo "<tr>";
+                        echo "<td>" . $contact['Guid'] . "</td>";
+                        echo "<td>" . $contact['GivenName'] . "</td>";
+                        echo "<td><a href=get_contact.php?guid={$contact['Guid']}>Open</a></td>";
+                        echo "</tr>";
                     }
-                ]
-            });
-        });
-    </script>
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
