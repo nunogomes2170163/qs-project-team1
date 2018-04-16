@@ -32,7 +32,7 @@
                     foreach($json_contacts as $contact) {
                         echo "<tr>";
                         echo "<td>" . $contact['Guid'] . "</td>";
-                        echo "<td>" . $contact['GivenName'] . "</td>";
+                        echo "<td>" . $contact['GivenName'] . ' ' . $contact['Surname'] . "</td>";
                         echo "<td><a href=get_contact.php?guid={$contact['Guid']}>Open</a></td>";
                         echo "</tr>";
                     }
