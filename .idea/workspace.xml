@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ed5aa3c-2903-4b50-b937-8597efb5a0bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/show_contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/show_contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/show_contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/show_contacts.html" afterDir="false" />
-    </list>
+    <list default="true" id="1ed5aa3c-2903-4b50-b937-8597efb5a0bf" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="show_contact.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/show_contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="76" column="105" selection-start-line="76" selection-start-column="105" selection-end-line="76" selection-end-column="105" />
+            <state relative-caret-position="225">
+              <caret line="67" column="30" lean-forward="true" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -176,12 +171,12 @@
       <workItem from="1523535235599" duration="2375000" />
       <workItem from="1523802182261" duration="5535000" />
       <workItem from="1523876289025" duration="285000" />
-      <workItem from="1523903355705" duration="806000" />
+      <workItem from="1523903355705" duration="1008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11207000" />
+    <option name="totallyTimeSpent" value="11409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="21" width="1440" height="879" extended-state="6" />
@@ -457,8 +452,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/show_contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="76" column="105" selection-start-line="76" selection-start-column="105" selection-end-line="76" selection-end-column="105" />
+        <state relative-caret-position="225">
+          <caret line="67" column="30" lean-forward="true" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
         </state>
       </provider>
     </entry>
