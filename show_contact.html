@@ -20,53 +20,53 @@
         ?>
         <div class="contact">
         <?php
-            echo '<img class="avatar" src="' . $json_contact['PhotoUrl'] . '">';
-            echo '<p class="guid"> GUID: ' . $json_contact['Guid'] . '</p>';
+            echo '<img class="avatar"  name="avatar" src="' . $json_contact['PhotoUrl'] . '">';
+            echo '<p class="guid" name="guid"> GUID: ' . $json_contact['Guid'] . '</p>';
         ?>
             <div class="info">
                 <div class="pair">
                     <label>Name</label>
-                    <p><?php echo $json_contact['GivenName'] ?></p>
+                    <p name="givenName"><?php echo $json_contact['GivenName'] ?></p>
                 </div>
                 <div class="pair">
                     <label>Surname</label>
-                    <p><?php echo $json_contact['Surname'] ?></p>
+                    <p name="surname"><?php echo $json_contact['Surname'] ?></p>
                 </div>
             </div>
             <div class="info">
                 <div class="pair">
                     <label>Occupation</label>
-                    <p><?php echo $json_contact['Occupation'] ?></p>
+                    <p name="occupation"><?php echo $json_contact['Occupation'] ?></p>
                 </div>
                 <div class="pair">
                     <label>Street Address</label>
-                    <p><?php echo $json_contact['StreetAddress'] ?></p>
+                    <p name="address"><?php echo $json_contact['StreetAddress'] ?></p>
                 </div>
             </div>
             <div class="info">
                 <div class="pair">
                     <label>Birthday</label>
-                    <p><?php echo $json_contact['Birthday'] ?></p>
+                    <p name="birthday"><?php echo $json_contact['Birthday'] ?></p>
                 </div>
                 <div class="pair">
                     <label>City</label>
-                    <p><?php echo $json_contact['City'] ?></p>
+                    <p name="city"><?php echo $json_contact['City'] ?></p>
                 </div>
             </div>
             <div class="info">
                 <div class="pair">
                     <label>Company</label>
-                    <p><?php echo $json_contact['Company'] ?></p>
+                    <p name="company"><?php echo $json_contact['Company'] ?></p>
                 </div>
                 <div class="pair">
                     <label>Email</label>
-                    <p><?php echo $json_contact['Email'] ?></p>
+                    <p name="email"><?php echo $json_contact['Email'] ?></p>
                 </div>
             </div>
             <div class="info">
                 <div class="pair">
                     <label>Phone</label>
-                    <p><?php echo $json_contact['Phone'] ?></p>
+                    <p name="phone"><?php echo $json_contact['Phone'] ?></p>
                 </div>
             </div>
             <br>
