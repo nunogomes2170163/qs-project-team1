@@ -20,9 +20,7 @@
         ?>
         <div class="contact">
         <?php
-            $image = $json_contact['PhotoUrl'];
-            $imageData = base64_encode(file_get_contents($image));
-            echo '<img class="avatar" src="data:image/jpeg;base64,'.$imageData.'">';
+            echo '<img class="avatar" src="' . $json_contact['PhotoUrl'] . '">';
             echo '<p class="guid"> GUID: ' . $json_contact['Guid'] . '</p>';
         ?>
             <div class="info">
@@ -69,12 +67,6 @@
                 <div class="pair">
                     <label>Phone</label>
                     <p><?php echo $json_contact['Phone'] ?></p>
-                </div>
-            </div>
-            <div class="info">
-                <div class="pair">
-                    <label>PhotoUrl</label>
-                    <?php echo '<a href="' . $json_contact['PhotoUrl'] . '">' . $json_contact['PhotoUrl'] . '</a>' ?>
                 </div>
             </div>
             <br>

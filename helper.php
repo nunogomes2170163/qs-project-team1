@@ -8,16 +8,9 @@
 
 function getAllContacts(){
     try {
-        $json_contacts = [];
         $url = 'http://contactsqs.apphb.com/Service.svc/rest/contacts';
         $response = callAPI('GET',$url, '');
         $json_contacts = json_decode($response, true);
-        /* foreach($json_contacts as $contact)
-       {
-           echo $contact['Company']. "\n";
-           echo $contact['City'];
-       }
-       */
         include 'show_contacts.html';
         return $json_contacts;
     } catch (Exception $e) {

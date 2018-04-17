@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#contacts').DataTable({
+        order: [[ 1, "asc" ]],
         'columnDefs': [
             {
                 targets: [ 0, 1, 2 ],
@@ -7,11 +8,11 @@ $(document).ready(function() {
             },
             {
                 'sortable': false,
-                'targets': [-1]
+                'targets': [0, 2]
             },
             {
                 'searchable': false,
-                'targets': [-1]
+                'targets': [0, 2]
             }
         ]
     });
