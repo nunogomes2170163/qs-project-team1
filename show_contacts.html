@@ -18,6 +18,35 @@
         <?php
             if(count($json_contacts)) {
         ?>
+        <div class="filters">
+            <div class="filter filter-li">
+                <img src="assets/images/linkedin.png" alt="linkedin logo" class="logo linkedin-logo">
+                <p class="linkedin">LinkedIn</p>
+                <label class="switch">
+                    <?php if ($_SESSION["filterState"]["linkedin"]["on"] == "true") { ?>
+                        <input id="LINKED_IN" class="filter-chooser" type="checkbox" checked>
+                    <?php } else { ?>
+                        <input id="LINKED_IN" class="filter-chooser" type="checkbox">
+                    <?php } ?>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="filter filter-fb">
+                <img src="assets/images/facebook.png" alt="facebook logo" class="logo facebook-logo">
+                <p class="facebook">Facebook</p>
+                <label class="switch">
+                    <?php if ($_SESSION["filterState"]["facebook"]["on"] == "true") { ?>
+                    <input id="FACEBOOK" class="filter-chooser" type="checkbox" checked>
+                    <?php } else { ?>
+                    <input id="FACEBOOK" class="filter-chooser" type="checkbox">
+                    <?php } ?>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="conflicts">
+                <a href="resolve_conflicts.php">Resolve conflicts</a>
+            </div>
+        </div>
         <div class="container">
             <table id="contacts" class="hover">
                 <thead>
@@ -50,7 +79,7 @@
             }
         ?>
     </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>

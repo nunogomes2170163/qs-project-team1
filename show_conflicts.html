@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts Orchestrator Solution</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<header>
+    <h1 class="main-title">Contacts Orchestrator Solution</h1>
+    <h2 class="sub-title">Contact Conflicts</h2>
+</header>
+<div class="options">
+    <a href="get_contacts.php" style="flex: 1;">< back</a>
+    <a href="#" class="button">Export contacts</a>
+</div>
+<main class="conflict-container">
+    <?php if(count($allConflicts)) { ?>
+        <?php foreach($allConflicts as $groupKey => $group) { ?>
+            <div class="conflict-group">
+                <h1><?php echo $groupKey . " <span>(" . count($group) . "&nbspconflicts)</span>" ?></h1>
+                <?php foreach($group as $guid => $elements) { ?>
+                    <div class="conflict-row">
+                        <div class="conflict-elements">
+                            <div class="info-names">
+                                <?php
+                                $lastElement = end($elements);
+                                foreach($elements as $elKey => $el) {
+                                ?>
+                                <?php if ($el != $lastElement) { ?>
+                                <p><?php echo $el["GivenName"] . " " . $el["Surname"] . ",&nbsp" ?></p>
+                                <?php } else { ?>
+                                <p><?php echo $el["GivenName"] . " " . $el["Surname"] ?></p>
+                                <?php } ?>
+                                <?php } ?>
+                            </div>
+                            <div class="more-info">
+                                <?php if ($groupKey == "Conflicts By Email") { ?>
+                                <?php
+                                    $lastElement = end($elements);
+                                    foreach($elements as $elKey => $el) {
+                                ?>
+                                <?php if ($el != $lastElement) { ?>
+                                <p><?php echo $el["Email"] . ",&nbsp" ?></p>
+                                <?php } else { ?>
+                                <p><?php echo $el["Email"] ?></p>
+                                <?php } ?>
+                                <?php } ?>
+                                <?php } ?>
+                                <?php if ($groupKey == "Conflicts By Phone") { ?>
+                                <?php
+                                        $lastElement = end($elements);
+                                        foreach($elements as $elKey => $el) {
+                                ?>
+                                <?php if ($el != $lastElement) { ?>
+                                <p><?php echo $el["Phone"] . ",&nbsp" ?></p>
+                                <?php } else { ?>
+                                <p><?php echo $el["Phone"] ?></p>
+                                <?php } ?>
+                                <?php } ?>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="conflict-actions">
+                            <?php echo "<a href=\"resolve_single_conflict.php\">resolve</a>" ?>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    <?php } ?>
+</main>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+</html>

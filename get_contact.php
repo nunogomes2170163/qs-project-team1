@@ -10,6 +10,7 @@ require_once("helper.php");
 
 if( $_GET["guid"] )
 {
+    session_start();
     getContact( $_GET["guid"]);
 }else{
     header('Contact not found', true, 404);
