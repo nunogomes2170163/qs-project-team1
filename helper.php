@@ -96,18 +96,96 @@ function getConflictsByPhone($allContacts) {
     return $conflictsByPhone;
 }
 
-function getAllContactsAndDisplayConflicts() {
-    $url = 'http://contactsqs2.apphb.com/Service.svc/rest/contacts';
-    $response = callAPI('GET',$url, '');
-    $allContacts = json_decode($response, true);
+function flattenArray($arrayToFlatten = []) {
+    $flatArray = [];
+    foreach (array_values($arrayToFlatten) as $key => $val)
+        foreach ($val as $k => $v)
+            array_push($flatArray, $v);
+    return $flatArray;
+}
 
-    $conflictsByName = getConflictsByName($allContacts);
-    $conflictsByEmail = getConflictsByEmail($allContacts);
-    $conflictsByPhone = getConflictsByPhone($allContacts);
-    $allConflicts = ["Conflicts By Name" => $conflictsByName, "Conflicts By Email" => $conflictsByEmail, "Conflicts By Phone" => $conflictsByPhone];
+function searchForGuid($id, $array) {
+    foreach ($array as $key => $val)
+        if ($val['Guid'] === $id) return $key;
+    return null;
+}
+
+function getKeysToRemove($flatArray, $allContacts) {
+    $keysToDelete = [];
+    foreach ($flatArray as $conflict) {
+        $index = searchForGuid($conflict["Guid"], $allContacts);
+        array_push($keysToDelete, $index);
+    }
+    return $keysToDelete;
+}
+
+function removeConflictsFromContacts($allContacts, $nameConflicts, $emailConflicts, $phoneConflicts) {
+    $nameConflictsFlat = flattenArray($nameConflicts);
+    $emailConflictsFlat = flattenArray($emailConflicts);
+    $phoneConflictsFlat = flattenArray($phoneConflicts);
+    $keysToRemoveFromNameConflicts = getKeysToRemove($nameConflictsFlat, $allContacts);
+    $keysToRemoveFromEmailConflicts = getKeysToRemove($emailConflictsFlat, $allContacts);
+    $keysToRemoveFromPhoneConflicts = getKeysToRemove($phoneConflictsFlat, $allContacts);
+    $keysToRemove = array_merge($keysToRemoveFromNameConflicts, $keysToRemoveFromEmailConflicts, $keysToRemoveFromPhoneConflicts);
+    return array_diff_key($allContacts, array_flip($keysToRemove));
+}
+
+function getAllContactsAndDisplayConflicts() {
+    // unset($_SESSION["contactsListToExport"]);
+    if (!$_SESSION["contactsListToExport"] && !$_SESSION["conflictsByName"] && !$_SESSION["conflictsByEmail"] && !$_SESSION["conflictsByPhone"]) {
+        $url = 'http://contactsqs2.apphb.com/Service.svc/rest/contacts';
+        $response = callAPI('GET',$url, '');
+        $allContacts = json_decode($response, true);
+        $conflictsByName = getConflictsByName($allContacts);
+        $conflictsByEmail = getConflictsByEmail($allContacts);
+        $conflictsByPhone = getConflictsByPhone($allContacts);
+        $allContactsWithoutConflicts = removeConflictsFromContacts($allContacts, $conflictsByName, $conflictsByEmail, $conflictsByPhone);
+        setExportData($allContactsWithoutConflicts, $conflictsByName, $conflictsByEmail, $conflictsByPhone);
+        $allConflictGroups = ["Conflicts By Name" => $conflictsByName, "Conflicts By Email" => $conflictsByEmail, "Conflicts By Phone" => $conflictsByPhone];
+    } else {
+        $allConflictGroups = ["Conflicts By Name" => $_SESSION["conflictsByName"], "Conflicts By Email" => $_SESSION["conflictsByEmail"], "Conflicts By Phone" => $_SESSION["conflictsByPhone"]];
+    }
 
     include 'show_conflicts.html';
-    return $allConflicts;
+    return $allConflictGroups;
+}
+
+function setExportData($allContactsWithoutConflicts, $conflictsByName, $conflictsByEmail, $conflictsByPhone) {
+    $_SESSION["contactsListToExport"] = $allContactsWithoutConflicts;
+    $_SESSION["conflictsByName"] = $conflictsByName;
+    $_SESSION["conflictsByEmail"] = $conflictsByEmail;
+    $_SESSION["conflictsByPhone"] = $conflictsByPhone;
+}
+
+function resetExportData() {
+    unset($_SESSION["contactsListToExport"]);
+    unset($_SESSION["conflictsByName"]);
+    unset($_SESSION["conflictsByEmail"]);
+    unset($_SESSION["conflictsByPhone"]);
+    header('Location: get_contacts.php');
+}
+
+function generateCsv($data, $delimiter = ',', $enclosure = '"') {
+    $handle = fopen('php://temp', 'r+');
+    fputcsv($handle, ["Birthdate", "City", "Company", "Email", "First Name", "GUID", "Occupation", "Phone", "PhotoUrl", "Source", "Address", "Last Name"], $delimiter, $enclosure);
+    foreach ($data as $line) {
+        fputcsv($handle, $line, $delimiter, $enclosure);
+    }
+    rewind($handle);
+    $contents = '';
+    while (!feof($handle)) {
+        $contents .= fread($handle, 8192);
+    }
+    fclose($handle);
+    return $contents;
+}
+
+function exportCsv() {
+    $csv = generateCsv($_SESSION["contactsListToExport"]);
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="contacts.csv"');
+    echo $csv;
+    header('Location: resolve_conflicts.php');
 }
 
 function getContact($guid) {

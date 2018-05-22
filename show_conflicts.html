@@ -13,12 +13,12 @@
     <h2 class="sub-title">Contact Conflicts</h2>
 </header>
 <div class="options">
-    <a href="get_contacts.php" style="flex: 1;">< back</a>
-    <a href="#" class="button">Export contacts</a>
+    <a href="get_contacts.php?resetData=true" style="flex: 1;">< back</a>
+    <a href="export.php" class="button">Export contacts</a>
 </div>
 <main class="conflict-container">
-    <?php if(count($allConflicts)) { ?>
-        <?php foreach($allConflicts as $groupKey => $group) { ?>
+    <?php if(count($allConflictGroups)) { ?>
+        <?php foreach($allConflictGroups as $groupKey => $group) { ?>
             <div class="conflict-group">
                 <h1><?php echo $groupKey . " <span>(" . count($group) . "&nbspconflicts)</span>" ?></h1>
                 <?php foreach($group as $guid => $elements) { ?>
