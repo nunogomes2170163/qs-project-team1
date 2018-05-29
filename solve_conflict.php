@@ -4,8 +4,8 @@ require_once("helper.php");
 
 try {
     session_start();
-    getEnvolvedContactsAndDisplayConflict();
+    resolveConflict($_POST);
 } catch (Exception $e) {
-    header('Unauthorized', true, 401);
+    header('Bad Request', true, 400);
     echo 'Something went wrong';
 }

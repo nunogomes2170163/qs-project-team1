@@ -53,6 +53,7 @@
                     <tr>
                         <th>Guid</th>
                         <th>Name</th>
+                        <th>Source</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -62,6 +63,7 @@
                         echo "<tr>";
                         echo "<td>" . $contact['Guid'] . "</td>";
                         echo "<td>" . $contact['GivenName'] . ' ' . $contact['Surname'] . "</td>";
+                        echo "<td>" . $contact['Source'] . "</td>";
                         echo "<td><a href=get_contact.php?guid={$contact['Guid']}>Open</a></td>";
                         echo "</tr>";
                     }
@@ -72,8 +74,37 @@
         <?php
             } else {
         ?>
+        <div class="filters">
+            <div class="filter filter-li">
+                <img src="assets/images/linkedin.png" alt="linkedin logo" class="logo linkedin-logo">
+                <p class="linkedin">LinkedIn</p>
+                <label class="switch">
+                    <?php if ($_SESSION["filterState"]["linkedin"]["on"] == "true") { ?>
+                    <input id="LINKED_IN" class="filter-chooser" type="checkbox" checked>
+                    <?php } else { ?>
+                    <input id="LINKED_IN" class="filter-chooser" type="checkbox">
+                    <?php } ?>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="filter filter-fb">
+                <img src="assets/images/facebook.png" alt="facebook logo" class="logo facebook-logo">
+                <p class="facebook">Facebook</p>
+                <label class="switch">
+                    <?php if ($_SESSION["filterState"]["facebook"]["on"] == "true") { ?>
+                    <input id="FACEBOOK" class="filter-chooser" type="checkbox" checked>
+                    <?php } else { ?>
+                    <input id="FACEBOOK" class="filter-chooser" type="checkbox">
+                    <?php } ?>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="conflicts">
+                <a href="resolve_conflicts.php">Resolve conflicts</a>
+            </div>
+        </div>
         <div class="banner">
-            <p class="no-contacts">No contacts</p>
+                <p class="no-contacts">No contacts</p>
         </div>
         <?php
             }

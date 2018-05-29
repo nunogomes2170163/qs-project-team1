@@ -64,7 +64,18 @@
                             </div>
                         </div>
                         <div class="conflict-actions">
-                            <?php echo "<a href=\"resolve_single_conflict.php\">resolve</a>" ?>
+                            <?php
+                            $guids = "";
+                            $lastElement = end($elements);
+                            foreach($elements as $elKey => $el) { ?>
+                            <?php if ($el != $lastElement) {
+                            $guids .= $el["Guid"] . '|';
+                            } else {
+                                $guids .= $el["Guid"];
+                            } ?>
+                            <?php } ?>
+                            <?php echo "<a href=\"resolve_single_conflict.php?guids=" . $guids . "\"" . ">resolve</a>" ?>
+                            <?php echo "<a style='margin-left: 10px;' href=\"dismiss_single_conflict.php?guids=" . $guids . "\"" . ">keep all</a>" ?>
                         </div>
                     </div>
                 <?php } ?>

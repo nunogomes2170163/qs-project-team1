@@ -10,7 +10,7 @@ require_once("helper.php");
 
 try {
     session_start();
-    $_SESSION['filterState'] = ["linkedin" => ["on" => "false", "source" => "linkedin"], "facebook" => ["on" => "false", "source" => "facebook"]];
+    $_SESSION['filterState'] = ["linkedin" => ["on" => "true", "source" => "linkedin"], "facebook" => ["on" => "true", "source" => "facebook"]];
     header('Location: get_contacts.php');
 } catch (Exception $e) {
     header('Unauthorized', true, 401);
