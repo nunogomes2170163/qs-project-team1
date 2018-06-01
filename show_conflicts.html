@@ -15,7 +15,10 @@
 </header>
 <div class="options">
     <a href="get_contacts.php?resetData=true" style="flex: 1;">< back</a>
+    <?php if(sizeof($allConflictGroups["Conflicts By Name"]) <= 0 && sizeof($allConflictGroups["Conflicts By Email"]) <= 0 && sizeof($allConflictGroups["Conflicts By Phone"]) <= 0) { ?>
     <a href="export.php" class="button">Export contacts</a>
+    <?php } ?>
+
 </div>
 <main class="conflict-container">
     <?php if(count($allConflictGroups)) { ?>

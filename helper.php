@@ -208,7 +208,9 @@ function dismissContactConflicts($guids) {
         foreach ($_SESSION["conflictsByName"] as $key => $cByName) {
             if ($key == $guid) {
                 foreach ($cByName as $k) {
-                    array_push($resolvedContacts, $k);
+                    if (!in_array($k, $resolvedContacts)) {
+                        array_push($resolvedContacts, $k);
+                    }
                 }
                 unset($_SESSION["conflictsByName"][$key]);
             }
@@ -216,7 +218,9 @@ function dismissContactConflicts($guids) {
         foreach ($_SESSION["conflictsByEmail"] as $key => $cByEmail) {
             if ($key == $guid) {
                 foreach ($cByEmail as $k) {
-                    array_push($resolvedContacts, $k);
+                    if (!in_array($k, $resolvedContacts)) {
+                        array_push($resolvedContacts, $k);
+                    }
                 }
                 unset($_SESSION["conflictsByEmail"][$key]);
             }
@@ -224,7 +228,9 @@ function dismissContactConflicts($guids) {
         foreach ($_SESSION["conflictsByPhone"] as $key => $cByPhone) {
             if ($key == $guid) {
                 foreach ($cByPhone as $k) {
-                    array_push($resolvedContacts, $k);
+                    if (!in_array($k, $resolvedContacts)) {
+                        array_push($resolvedContacts, $k);
+                    }
                 }
                 unset($_SESSION["conflictsByPhone"][$key]);
             }
