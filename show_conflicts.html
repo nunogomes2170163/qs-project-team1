@@ -9,7 +9,6 @@
 </head>
 <body>
 <header>
-    //tests
     <h1 class="main-title">Contacts Orchestrator Solution</h1>
     <h2 class="sub-title">Contact Conflicts</h2>
 </header>
@@ -18,7 +17,6 @@
     <?php if(sizeof($allConflictGroups["Conflicts By Name"]) <= 0 && sizeof($allConflictGroups["Conflicts By Email"]) <= 0 && sizeof($allConflictGroups["Conflicts By Phone"]) <= 0) { ?>
     <a href="export.php" class="button">Export contacts</a>
     <?php } ?>
-
 </div>
 <main class="conflict-container">
     <?php if(count($allConflictGroups)) { ?>

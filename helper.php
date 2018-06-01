@@ -48,16 +48,26 @@ function getAllContacts(){
 function getConflictsByName($allContacts) {
     $conflictsByName = [];
     $guidsAddedToConflictsByName = [];
+    $str = "";
+    $aux = [];
     foreach ($allContacts as $contact) {
         foreach ($allContacts as $contactFound) {
             if ($contact["Guid"] != $contactFound["Guid"] && !in_array($contact["Guid"], $guidsAddedToConflictsByName) && strtolower($contact["GivenName"]) == strtolower($contactFound["GivenName"]) && strtolower($contact["Surname"]) == strtolower($contactFound["Surname"])) {
                 array_push($guidsAddedToConflictsByName, $contactFound["Guid"]);
-                if (count($conflictsByName) > 0) {
-                    if (array_key_exists($contact["Guid"], $conflictsByName)) array_push($conflictsByName[$contact["Guid"]], $contactFound);
-                    else $conflictsByName[$contact["Guid"]] = [$contact, $contactFound];
-                } else $conflictsByName[$contact["Guid"]] = [$contact, $contactFound];
+                $str .= $contactFound["Guid"] . "|";
+                if (count($aux) == 0) {
+                    array_push($aux, $contact);
+                }
+                if (!in_array($contactFound, $aux)) {
+                    array_push($aux, $contactFound);
+                }
             }
         }
+        if ($str != "") {
+            $conflictsByName[$str] = $aux;
+        }
+        $str = "";
+        $aux = [];
     }
     return $conflictsByName;
 }
@@ -65,16 +75,26 @@ function getConflictsByName($allContacts) {
 function getConflictsByEmail($allContacts) {
     $conflictsByEmail = [];
     $guidsAddedToConflictsByEmail = [];
+    $str = "";
+    $aux = [];
     foreach ($allContacts as $contact) {
         foreach ($allContacts as $contactFound) {
             if ($contact["Guid"] != $contactFound["Guid"] && !in_array($contact["Guid"], $guidsAddedToConflictsByEmail) && strtolower($contact["Email"]) == strtolower($contactFound["Email"])) {
                 array_push($guidsAddedToConflictsByEmail, $contactFound["Guid"]);
-                if (count($conflictsByEmail) > 0) {
-                    if (array_key_exists($contact["Guid"], $conflictsByEmail)) array_push($conflictsByEmail[$contact["Guid"]], $contactFound);
-                    else $conflictsByEmail[$contact["Guid"]] = [$contact, $contactFound];
-                } else $conflictsByEmail[$contact["Guid"]] = [$contact, $contactFound];
+                $str .= $contactFound["Guid"] . "|";
+                if (count($aux) == 0) {
+                    array_push($aux, $contact);
+                }
+                if (!in_array($contactFound, $aux)) {
+                    array_push($aux, $contactFound);
+                }
             }
         }
+        if ($str != "") {
+            $conflictsByEmail[$str] = $aux;
+        }
+        $str = "";
+        $aux = [];
     }
     return $conflictsByEmail;
 }
@@ -82,16 +102,26 @@ function getConflictsByEmail($allContacts) {
 function getConflictsByPhone($allContacts) {
     $conflictsByPhone = [];
     $guidsAddedToConflictsByPhone = [];
+    $str = "";
+    $aux = [];
     foreach ($allContacts as $contact) {
         foreach ($allContacts as $contactFound) {
             if ($contact["Guid"] != $contactFound["Guid"] && !in_array($contact["Guid"], $guidsAddedToConflictsByPhone) && strtolower($contact["Phone"]) == strtolower($contactFound["Phone"])) {
                 array_push($guidsAddedToConflictsByPhone, $contactFound["Guid"]);
-                if (count($conflictsByPhone) > 0) {
-                    if (array_key_exists($contact["Guid"], $conflictsByPhone)) array_push($conflictsByPhone[$contact["Guid"]], $contactFound);
-                    else $conflictsByPhone[$contact["Guid"]] = [$contact, $contactFound];
-                } else $conflictsByPhone[$contact["Guid"]] = [$contact, $contactFound];
+                $str .= $contactFound["Guid"] . "|";
+                if (count($aux) == 0) {
+                    array_push($aux, $contact);
+                }
+                if (!in_array($contactFound, $aux)) {
+                    array_push($aux, $contactFound);
+                }
             }
         }
+        if ($str != "") {
+            $conflictsByPhone[$str] = $aux;
+        }
+        $str = "";
+        $aux = [];
     }
     return $conflictsByPhone;
 }
@@ -182,19 +212,74 @@ function resetExportData() {
     header('Location: get_contacts.php');
 }
 
-function resolveConflict($resolvedContact) {
-    $guidsToDelete = explode("|", $resolvedContact["Guid"]);
-    foreach ($guidsToDelete as $guid) {
-        foreach ($_SESSION["conflictsByName"] as $key => $cByName) {
-            if ($key == $guid) unset($_SESSION["conflictsByName"][$key]);
-        }
-        foreach ($_SESSION["conflictsByEmail"] as $key => $cByEmail) {
-            if ($key == $guid) unset($_SESSION["conflictsByEmail"][$key]);
-        }
-        foreach ($_SESSION["conflictsByPhone"] as $key => $cByPhone) {
-            if ($key == $guid) unset($_SESSION["conflictsByPhone"][$key]);
+function recheckConflicts($aux, $guids, $tag) {
+    $str = "";
+    foreach ($aux as $key => $value) {
+        foreach ($guids as $guid) {
+            if ($value["Guid"] == $guid) {
+                unset($aux[$key]);
+            } else {
+                $str .= $value["Guid"] . "|";
+            }
         }
     }
+    if ($str != "") {
+        switch ($tag) {
+            case "name":
+                if (count($aux) > 1) {
+                    $_SESSION["conflictsByName"][$str] = $aux;
+                } else {
+                    array_push($_SESSION["contactsListToExport"], array_pop($aux));
+                }
+                break;
+            case "email":
+                if (count($aux) > 1) {
+                    $_SESSION["conflictsByEmail"][$str] = $aux;
+                } else {
+                    array_push($_SESSION["contactsListToExport"], array_pop($aux));
+                }
+                break;
+            case "phone":
+                if (count($aux) > 1) {
+                    $_SESSION["conflictsByPhone"][$str] = $aux;
+                } else {
+                    array_push($_SESSION["contactsListToExport"], array_pop($aux));
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+function resolveConflict($resolvedContact) {
+    $guidsToDelete = explode("|", $resolvedContact["Guid"]);
+    $auxNames = [];
+    $auxEmails = [];
+    $auxPhones = [];
+    foreach ($guidsToDelete as $guid) {
+        foreach ($_SESSION["conflictsByName"] as $key => $cByName) {
+            if (strpos($key, $guid) !== false){
+                $auxNames = $_SESSION["conflictsByName"][$key];
+                unset($_SESSION["conflictsByName"][$key]);
+            }
+        }
+        foreach ($_SESSION["conflictsByEmail"] as $key => $cByEmail) {
+            if (strpos($key, $guid) !== false){
+                $auxEmails = $_SESSION["conflictsByEmail"][$key];
+                unset($_SESSION["conflictsByEmail"][$key]);
+            }
+        }
+        foreach ($_SESSION["conflictsByPhone"] as $key => $cByPhone) {
+            if (strpos($key, $guid) !== false) {
+                $auxPhones = $_SESSION["conflictsByPhone"][$key];
+                unset($_SESSION["conflictsByPhone"][$key]);
+            }
+        }
+    }
+    recheckConflicts($auxNames, $guidsToDelete, "name");
+    recheckConflicts($auxEmails, $guidsToDelete, "email");
+    recheckConflicts($auxPhones, $guidsToDelete, "phone");
     unset($resolvedContact["Guid"]);
     unset($resolvedContact["Source"]);
     array_push($_SESSION["contactsListToExport"], $resolvedContact);
@@ -204,11 +289,15 @@ function resolveConflict($resolvedContact) {
 function dismissContactConflicts($guids) {
     $resolvedContacts = [];
     $guidsToDelete = explode("|", $guids);
+    $auxNames = [];
+    $auxEmails = [];
+    $auxPhones = [];
     foreach ($guidsToDelete as $guid) {
         foreach ($_SESSION["conflictsByName"] as $key => $cByName) {
-            if ($key == $guid) {
-                foreach ($cByName as $k) {
-                    if (!in_array($k, $resolvedContacts)) {
+            if (strpos($key, $guid) !== false) {
+                $auxNames = $_SESSION["conflictsByName"][$key];
+                foreach ($cByName as $k => $v) {
+                    if (!in_array($k, $resolvedContacts) && strpos($v["Guid"], $guid) !== false) {
                         array_push($resolvedContacts, $k);
                     }
                 }
@@ -216,9 +305,10 @@ function dismissContactConflicts($guids) {
             }
         }
         foreach ($_SESSION["conflictsByEmail"] as $key => $cByEmail) {
-            if ($key == $guid) {
+            if (strpos($key, $guid) !== false) {
+                $auxEmails = $_SESSION["conflictsByEmail"][$key];
                 foreach ($cByEmail as $k) {
-                    if (!in_array($k, $resolvedContacts)) {
+                    if (!in_array($k, $resolvedContacts) && strpos($v["Guid"], $guid) !== false) {
                         array_push($resolvedContacts, $k);
                     }
                 }
@@ -226,9 +316,10 @@ function dismissContactConflicts($guids) {
             }
         }
         foreach ($_SESSION["conflictsByPhone"] as $key => $cByPhone) {
-            if ($key == $guid) {
+            if (strpos($key, $guid) !== false) {
+                $auxPhones = $_SESSION["conflictsByPhone"][$key];
                 foreach ($cByPhone as $k) {
-                    if (!in_array($k, $resolvedContacts)) {
+                    if (!in_array($k, $resolvedContacts) && strpos($v["Guid"], $guid) !== false) {
                         array_push($resolvedContacts, $k);
                     }
                 }
@@ -236,6 +327,9 @@ function dismissContactConflicts($guids) {
             }
         }
     }
+    recheckConflicts($auxNames, $guidsToDelete, "name");
+    recheckConflicts($auxEmails, $guidsToDelete, "email");
+    recheckConflicts($auxPhones, $guidsToDelete, "phone");
     $merged = array_merge($_SESSION["contactsListToExport"], $resolvedContacts);
     $_SESSION["contactsListToExport"] = $merged;
 }
