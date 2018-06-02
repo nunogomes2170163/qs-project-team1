@@ -152,26 +152,76 @@ header h2 {
     width: 27px;
 }
 
-.filters .conflicts {
+.options {
     display: flex;
     flex: 1;
-    justify-content: flex-end;
-    margin-top: -10px;
+    padding: 10px 80px;
+    background-color: #f2f2f2;
+    flex-direction: row;
+    align-items: center;
 }
 
-.filters .conflicts a {
-    background-color: #ff4081;
-    color: #ffffff;
-    padding: 15px;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: background-color 200ms;
+/* switch button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-.filters .conflicts a:hover {
-    background-color: #ff6aa3;
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
-.filters .conflicts a:focus, .filters .conflicts a:active {
-    background-color: #ff1b73;
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.filter-fb input:checked + .slider {
+    background-color: #3B5998;
+}
+
+.filter-fb input:focus + .slider {
+    box-shadow: 0 0 1px #3B5998;
+}
+
+.filter-li input:checked + .slider {
+    background-color: #0077B5;
+}
+
+.filter-li input:focus + .slider {
+    box-shadow: 0 0 1px #0077B5;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
