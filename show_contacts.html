@@ -113,6 +113,27 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#contacts').DataTable({
+                order: [[ 1, "asc" ]],
+                'columnDefs': [
+                    {
+                        targets: [ 0, 1, 2 ],
+                        className: 'mdl-data-table__cell--non-numeric'
+                    },
+                    {
+                        'sortable': false,
+                        'targets': [0, 2]
+                    },
+                    {
+                        'searchable': false,
+                        'targets': [0, 2]
+                    }
+                ]
+            });
+        });
+    </script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
