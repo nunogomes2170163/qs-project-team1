@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ed5aa3c-2903-4b50-b937-8597efb5a0bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/show_contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/show_contacts.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +22,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="helper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="646">
@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_contacts.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show_contacts.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/show_contacts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="255">
+              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -131,8 +131,8 @@
         <option value="$PROJECT_DIR$/show_conflicts.html" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/show_contacts.html" />
         <option value="$PROJECT_DIR$/helper.php" />
+        <option value="$PROJECT_DIR$/show_contacts.html" />
       </list>
     </option>
   </component>
@@ -276,7 +276,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68665000" />
+    <option name="totallyTimeSpent" value="68982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -603,24 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/show_contacts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -638,6 +624,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -645,6 +638,13 @@
           <folding>
             <element signature="e#6#93#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_contacts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
         </state>
       </provider>
     </entry>

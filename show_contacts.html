@@ -24,6 +24,7 @@
                     <tr>
                         <th>Guid</th>
                         <th>Name</th>
+                        <th>Source</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -33,6 +34,7 @@
                         echo "<tr>";
                         echo "<td>" . $contact['Guid'] . "</td>";
                         echo "<td>" . $contact['GivenName'] . ' ' . $contact['Surname'] . "</td>";
+                        echo "<td>" . $contact['Source'] . "</td>";
                         echo "<td><a href=get_contact.php?guid={$contact['Guid']}>Open</a></td>";
                         echo "</tr>";
                     }
@@ -59,16 +61,16 @@
                 order: [[ 1, "asc" ]],
                 'columnDefs': [
                     {
-                        targets: [ 0, 1, 2 ],
+                        targets: [ 0, 1, 2, 3 ],
                         className: 'mdl-data-table__cell--non-numeric'
                     },
                     {
                         'sortable': false,
-                        'targets': [0, 2]
+                        'targets': [0, 3]
                     },
                     {
                         'searchable': false,
-                        'targets': [0, 2]
+                        'targets': [0, 3]
                     }
                 ]
             });
