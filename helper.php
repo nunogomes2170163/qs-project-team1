@@ -8,9 +8,35 @@
 
 function getAllContacts(){
     try {
-        $url = 'http://contactsqs2.apphb.com/Service.svc/rest/contacts';
-        $response = callAPI('GET',$url, '');
-        $json_contacts = json_decode($response, true);
+        $linkedinSess = $_SESSION["filterState"]['linkedin'];
+        $facebookSess = $_SESSION["filterState"]['facebook'];
+        $linkedInChosen = $linkedinSess['on'];
+        $linkedInSource = $linkedinSess['source'];
+        $linkedInData = [];
+        $facebookChosen = $facebookSess['on'];
+        $facebookSource = $facebookSess['source'];
+        $facebookData = [];
+        $response = [];
+        $allData = [];
+        $json_contacts = [];
+
+        if ($linkedInChosen == "true") {
+            $linkedInUrl = 'http://contactsqs2.apphb.com/Service.svc/rest/contacts/bysource/' . $linkedInSource;
+            $linkedInResponse = callAPI('GET',$linkedInUrl, '');
+            $linkedInData = json_decode($linkedInResponse, true);
+        }
+        if ($facebookChosen == "true") {
+            $facebookUrl = 'http://contactsqs2.apphb.com/Service.svc/rest/contacts/bysource/' . $facebookSource;
+            $facebookResponse = callAPI('GET',$facebookUrl, '');
+            $facebookData = json_decode($facebookResponse, true);
+        }
+        if ($facebookChosen == "false" && $linkedInChosen == "false") {
+            //$url = 'http://contactsqs2.apphb.com/Service.svc/rest/contacts';
+            //$response = callAPI('GET',$url, '');
+            $allData = [];
+        }
+        if ($facebookChosen == "true" || $linkedInChosen == "true") $json_contacts = array_merge($linkedInData, $facebookData);
+        else $json_contacts = $allData;
         include 'show_contacts.html';
         return $json_contacts;
     } catch (Exception $e) {
