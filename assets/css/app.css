@@ -108,3 +108,70 @@ header h2 {
     font-size: 2.5rem;
     color: #333333;
 }
+
+.filters {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.filters .filter {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    margin-right: 40px;
+}
+
+.filters .filter > p  {
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #e87e1e;
+}
+.filters .filter > p.facebook  {
+    color: #3B5998;
+}
+
+.filters .filter > p.linkedin  {
+    color: #0077B5;
+}
+
+.filters .filter > .logo {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.filters .filter > .linkedin-logo  {
+    margin-top: 2px;
+    height: 27px;
+    width: 27px;
+}
+
+.filters .conflicts {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    margin-top: -10px;
+}
+
+.filters .conflicts a {
+    background-color: #ff4081;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 200ms;
+}
+
+.filters .conflicts a:hover {
+    background-color: #ff6aa3;
+}
+
+.filters .conflicts a:focus, .filters .conflicts a:active {
+    background-color: #ff1b73;
+}
