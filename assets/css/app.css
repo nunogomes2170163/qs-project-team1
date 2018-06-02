@@ -152,6 +152,95 @@ header h2 {
     width: 27px;
 }
 
+.filters .conflicts {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    margin-top: -10px;
+}
+
+.filters .conflicts a {
+    background-color: #ff4081;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 200ms;
+}
+
+.filters .conflicts a:hover {
+    background-color: #ff6aa3;
+}
+
+.filters .conflicts a:focus, .filters .conflicts a:active {
+    background-color: #ff1b73;
+}
+
+.conflict-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.conflict-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 2px;
+}
+
+.conflict-group h1 {
+    font-size: 20px;
+    color: #ff4081;
+}
+
+.conflict-group h1 span {
+    font-size: 14px;
+    color: #ff6aa3;
+}
+
+.conflict-group .conflict-elements {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.conflict-group .conflict-elements .info-names {
+    display: flex;
+    flex-direction: row;
+}
+
+.conflict-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #afafaf;
+}
+
+.conflict-actions {
+    padding: 20px;
+}
+
+.conflict-group .conflict-elements .more-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.conflict-group .conflict-elements .info-names p {
+    font-size: 14px;
+}
+
+.conflict-group .conflict-elements .more-info p {
+    font-size: 11px;
+    color: #9a9a9a;
+    margin-top: -20px;
+}
+
 .options {
     display: flex;
     flex: 1;
@@ -159,6 +248,23 @@ header h2 {
     background-color: #f2f2f2;
     flex-direction: row;
     align-items: center;
+}
+
+.button {
+    background-color: #ff4081;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 200ms;
+}
+
+.button:hover {
+    background-color: #ff6aa3;
+}
+
+.button:focus, .button:active {
+    background-color: #ff1b73;
 }
 
 /* switch button */

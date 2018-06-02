@@ -43,6 +43,9 @@
                     <span class="slider round"></span>
                 </label>
             </div>
+            <div class="conflicts">
+                <a href="resolve_conflicts.php">Resolve conflicts</a>
+            </div>
         </div>
         <div class="container">
             <table id="contacts" class="hover">
@@ -95,7 +98,6 @@
                     return false;
                 }
             );
-
             var table = $('#contacts').DataTable({
                 order: [[ 1, "asc" ]],
                 'columnDefs': [
@@ -113,7 +115,6 @@
                     }
                 ]
             });
-
             $('#LINKED_IN, #FACEBOOK').change( function() {
                 table.draw();
             } );
