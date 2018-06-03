@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ed5aa3c-2903-4b50-b937-8597efb5a0bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,76 +15,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="show_conflicts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/show_conflicts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="24" column="104" selection-start-line="24" selection-start-column="104" selection-end-line="24" selection-end-column="104" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show_contacts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/show_contacts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="25" column="64" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_contacts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/get_contacts.php">
+      <file leaf-file-name="dismiss_single_conflict.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dismiss_single_conflict.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="helper.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="158" column="23" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
+            <state relative-caret-position="-374">
+              <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resolve_conflicts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resolve_conflicts.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-            </state>
-          </provider>
+      <file leaf-file-name="resolve_single_conflict.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resolve_single_conflict.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/app.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3519">
-              <caret line="207" column="12" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filters.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/filters.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="38" />
-            </state>
-          </provider>
+      <file leaf-file-name="solve_conflict.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/solve_conflict.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -137,8 +95,9 @@
         <option value="$PROJECT_DIR$/filters.php" />
         <option value="$PROJECT_DIR$/show_conflicts.html" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/helper.php" />
+        <option value="$PROJECT_DIR$/show_single_conflict.html" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/helper.php" />
       </list>
     </option>
   </component>
@@ -184,7 +143,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -201,18 +159,13 @@
               <item name="VAGRANT_WEB" type="b2602c69:ProjectViewProjectNode" />
               <item name="VAGRANT_WEB" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="VAGRANT_WEB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VAGRANT_WEB" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,7 +173,7 @@
     <property name="SearchEverywhereHistoryKey" value="app.css&#9;FILE&#9;file:///Users/davidalecrim/VAGRANT_WEB/assets/css/app.css" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -279,12 +232,13 @@
       <workItem from="1527937277957" duration="4071000" />
       <workItem from="1527947303079" duration="3181000" />
       <workItem from="1527981439189" duration="2763000" />
-      <workItem from="1528040658461" duration="3105000" />
+      <workItem from="1528040658461" duration="5201000" />
+      <workItem from="1528051599937" duration="253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73503000" />
+    <option name="totallyTimeSpent" value="75852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -479,21 +433,31 @@
     <entry file="file://$PROJECT_DIR$/show_contact.html" />
     <entry file="file://$PROJECT_DIR$/deploy.php" />
     <entry file="file://$PROJECT_DIR$/index.php" />
-    <entry file="file://$PROJECT_DIR$/dismiss_single_conflict.php" />
+    <entry file="file://$PROJECT_DIR$/filters.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resolve_conflicts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="348" column="1" selection-start-line="348" selection-start-column="1" selection-end-line="348" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/get_contacts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/show_single_conflict.html" />
-    <entry file="file://$PROJECT_DIR$/solve_conflict.php" />
-    <entry file="file://$PROJECT_DIR$/resolve_single_conflict.php" />
-    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3519">
-          <caret line="207" column="12" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -511,31 +475,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filters.php">
+    <entry file="file://$PROJECT_DIR$/show_single_conflict.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resolve_conflicts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="158" column="23" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
+        <state relative-caret-position="459">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="561">
+          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dismiss_single_conflict.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resolve_single_conflict.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solve_conflict.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
         </state>
       </provider>
     </entry>

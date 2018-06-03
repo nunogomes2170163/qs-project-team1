@@ -160,21 +160,6 @@ function getAllContactsAndDisplayConflicts() {
     return $allConflictGroups;
 }
 
-function getEnvolvedContactsAndDisplayConflict() {
-    $guids = explode("|", $_GET["guids"]);
-    $envolvedContacts = [];
-    foreach ($guids as $guid) {
-        foreach ($_SESSION["allContacts"] as $key => $val) {
-            if ($val["Guid"] == $guid) {
-                array_push($envolvedContacts, $val);
-            }
-        }
-    }
-    include 'show_single_conflict.html';
-    $_SESSION["currentConflict"] = $envolvedContacts;
-    return $envolvedContacts;
-}
-
 function setExportData($allContacts, $allContactsWithoutConflicts, $conflictsByName, $conflictsByEmail, $conflictsByPhone) {
     $_SESSION["allContacts"] = $allContacts;
     $_SESSION["contactsListToExport"] = $allContactsWithoutConflicts;
@@ -232,40 +217,6 @@ function recheckConflicts($aux, $guids, $tag) {
     }
 }
 
-function resolveConflict($resolvedContact) {
-    $guidsToDelete = explode("|", $resolvedContact["Guid"]);
-    $auxNames = [];
-    $auxEmails = [];
-    $auxPhones = [];
-    foreach ($guidsToDelete as $guid) {
-        foreach ($_SESSION["conflictsByName"] as $key => $cByName) {
-            if (strpos($key, $guid) !== false){
-                $auxNames = $_SESSION["conflictsByName"][$key];
-                unset($_SESSION["conflictsByName"][$key]);
-            }
-        }
-        foreach ($_SESSION["conflictsByEmail"] as $key => $cByEmail) {
-            if (strpos($key, $guid) !== false){
-                $auxEmails = $_SESSION["conflictsByEmail"][$key];
-                unset($_SESSION["conflictsByEmail"][$key]);
-            }
-        }
-        foreach ($_SESSION["conflictsByPhone"] as $key => $cByPhone) {
-            if (strpos($key, $guid) !== false) {
-                $auxPhones = $_SESSION["conflictsByPhone"][$key];
-                unset($_SESSION["conflictsByPhone"][$key]);
-            }
-        }
-    }
-    recheckConflicts($auxNames, $guidsToDelete, "name");
-    recheckConflicts($auxEmails, $guidsToDelete, "email");
-    recheckConflicts($auxPhones, $guidsToDelete, "phone");
-    unset($resolvedContact["Guid"]);
-    unset($resolvedContact["Source"]);
-    array_push($_SESSION["contactsListToExport"], $resolvedContact);
-    echo json_encode(["status" => "200"]);
-}
-
 function dismissContactConflicts($guids) {
     $resolvedContacts = [];
     $guidsToDelete = explode("|", $guids);
@@ -312,35 +263,6 @@ function dismissContactConflicts($guids) {
     recheckConflicts($auxPhones, $guidsToDelete, "phone");
     $merged = array_merge($_SESSION["contactsListToExport"], $resolvedContacts);
     $_SESSION["contactsListToExport"] = $merged;
-}
-
-function generateCsv($data, $delimiter = ',', $enclosure = '"') {
-    $handle = fopen('php://temp', 'r+');
-    fputcsv($handle, ["Birthday", "City", "Company", "Email", "First Name", "Occupation", "Phone", "PhotoUrl", "Address", "Last Name"], $delimiter, $enclosure);
-    foreach ($data as $line) {
-        fputcsv($handle, $line, $delimiter, $enclosure);
-    }
-    rewind($handle);
-    $contents = '';
-    while (!feof($handle)) {
-        $contents .= fread($handle, 8192);
-    }
-    fclose($handle);
-    return $contents;
-}
-
-function exportCsv() {
-    $contactsReadyToExport = [];
-    foreach ($_SESSION["contactsListToExport"] as $contact) {
-        unset($contact["Guid"]);
-        unset($contact["Source"]);
-        array_push($contactsReadyToExport, $contact);
-    }
-    $csv = generateCsv($contactsReadyToExport);
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="contacts.csv"');
-    echo $csv;
-    header('Location: resolve_conflicts.php');
 }
 
 function getContact($guid) {
