@@ -361,7 +361,7 @@ function exportCsv() {
 function getContact($guid) {
     try {
         $json_contact = null;
-        $url = 'http://contactsqs.apphb.com/Service.svc/rest/contact/byguid/'.$guid;
+        $url = 'http://contactsqs2.apphb.com/Service.svc/rest/contact/byguid/'.$guid;
         $response = callAPI('GET',$url, '');
         $json_contact = json_decode($response, true);
         include 'show_contact.html';

@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ed5aa3c-2903-4b50-b937-8597efb5a0bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/VAGRANT_WEB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VAGRANT_WEB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/show_contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/show_contacts.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="helper.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="150">
+              <caret line="362" column="29" lean-forward="true" selection-start-line="361" selection-start-column="9" selection-end-line="362" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -75,13 +67,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="207" column="12" lean-forward="true" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_contact.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/get_contact.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="filters.php" pinned="false" current-in-tab="false">
@@ -143,10 +140,10 @@
         <option value="$PROJECT_DIR$/get_contacts.php" />
         <option value="$PROJECT_DIR$/show_contacts.html" />
         <option value="$PROJECT_DIR$/filters.php" />
-        <option value="$PROJECT_DIR$/helper.php" />
         <option value="$PROJECT_DIR$/show_conflicts.html" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
+        <option value="$PROJECT_DIR$/helper.php" />
       </list>
     </option>
   </component>
@@ -286,12 +283,12 @@
       <workItem from="1527889209711" duration="1713000" />
       <workItem from="1527937277957" duration="4071000" />
       <workItem from="1527947303079" duration="3181000" />
-      <workItem from="1527981439189" duration="1428000" />
+      <workItem from="1527981439189" duration="2145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69063000" />
+    <option name="totallyTimeSpent" value="69780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -495,7 +492,6 @@
     <entry file="file://$USER_HOME$/Workspace/Web/tf_joana_v2/src/assets/css/grid.css" />
     <entry file="file://$PROJECT_DIR$/show_contact.html" />
     <entry file="file://$PROJECT_DIR$/deploy.php" />
-    <entry file="file://$PROJECT_DIR$/get_contact.php" />
     <entry file="file://$PROJECT_DIR$/index.php" />
     <entry file="file://$PROJECT_DIR$/dismiss_single_conflict.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -515,13 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="19" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -581,6 +570,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="207" column="12" lean-forward="true" selection-start-line="207" selection-start-column="12" selection-end-line="207" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_contact.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="362" column="29" lean-forward="true" selection-start-line="361" selection-start-column="9" selection-end-line="362" selection-end-column="29" />
         </state>
       </provider>
     </entry>
