@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts Orchestrator Solution</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<header>
+    <h1 class="main-title">Contacts Orchestrator Solution</h1>
+    <h2 class="sub-title">Resolve single conflict</h2>
+</header>
+<div class="options">
+    <a href="resolve_conflicts.php" style="flex: 1;">< back</a>
+    <button class="button js-save-conflict">Save</button>
+</div>
+<main>
+    <div class="single-conflict-container">
+        <?php
+        $conflictNumber = count($envolvedContacts);
+        foreach($envolvedContacts as $k => $contact) {
+        ?>
+        <div class="single-conflict">
+            <div style="display: flex; flex: 1; flex-direction: row; align-items: center;">
+                <div>
+                    <?php echo "<h2>Conflict #" . ++$k . "</h2>" ?>
+                </div>
+                <?php if ($conflictNumber > 2) { ?>
+                <div style="display: flex; margin-left: 20px; padding: 20px; background-color: #afafaf; height: 25px; width: 25px; border-radius: 50%; justify-content: center; align-items: center;">
+                    <button class="js-remove-contact" style="display: flex; justify-self: flex-end;">X</button>
+                </div>
+                <?php }?>
+            </div>
+            <?php echo "<p><label><input type='radio' name='name' checked value='" . $contact["Guid"] . "'>&nbsp;<strong>Name: </strong><span>" . $contact["GivenName"] . " " . $contact["Surname"] . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='radio' name='birthday' checked value='" . $contact["Guid"] . "'>&nbsp;<strong>Birthday: </strong><span>" . ($contact["Birthday"] ? $contact["Birthday"] : "Not Defined") . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='radio' name='photo' checked value='" . $contact["Guid"] . "'>&nbsp;<strong>Photo: </strong><img style=\"border-radius: 50%; height: 50px; width: 50px;\" src=\"" . $contact["PhotoUrl"] . "\"" . "></label></p>" ?>
+            <?php echo "<p><label><input type='checkbox' name='email' value='" . $contact["Guid"] . "'>&nbsp;<strong>Email: </strong><span>" . ($contact["Email"] ? $contact["Email"] : "Not Defined") . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='checkbox' name='phone' value='" . $contact["Guid"] . "'>&nbsp;<strong>Phone: </strong><span>" . ($contact["Phone"] ? $contact["Phone"] : "Not Defined") . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='checkbox' name='address' value='" . $contact["Guid"] . "'>&nbsp;<strong>Street Address: </strong><span>" . ($contact["StreetAddress"] ? $contact["StreetAddress"] : "Not Defined") . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='checkbox' name='occupation' value='" . $contact["Guid"] . "'>&nbsp;<strong>Occupation: </strong><span>" . ($contact["Occupation"] ? $contact["Occupation"] : "Not Defined") . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='checkbox' name='company' value='" . $contact["Guid"] . "'>&nbsp;<strong>Company: </strong><span>" . ($contact["Company"] ? $contact["Company"] : "Not Defined" ) . "</span></label></p>" ?>
+            <?php echo "<p><label><input type='checkbox' name='city' value='" . $contact["Guid"] . "'>&nbsp;<strong>City: </strong><span>" . ($contact["City"] ? $contact["City"] : "Not Defined") . "</span></label></p>" ?>
+            <?php echo "<p><label><strong>Source: </strong><span>" . ($contact["Source"] ? $contact["Source"] : "Não definido") . "</span></label></p>" ?>
+        </div>
+        <?php } ?>
+    </div>
+</main>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+</html>
